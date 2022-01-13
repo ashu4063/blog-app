@@ -83,7 +83,7 @@ function SignUp() {
 
   return (
     <React.Fragment>
-      <div className=''>
+      <div style={{ width: "100%" }}>
         <Grid
           container
           spacing={0}
@@ -93,7 +93,7 @@ function SignUp() {
           height="100vh"
 
         >
-          <Card sx={{ width: 500, padding: 2 }} >
+          <Card sx={{ width: 500, padding: 2 }} className="authCards">
             <CardContent>
               <Typography variant='h4' color="text.secondary">
                 Login

@@ -55,7 +55,7 @@ function LoginPage() {
   });
   return (
     <React.Fragment>
-      <div className=''>
+      <div>
         <Grid
           container
           spacing={0}
@@ -64,7 +64,7 @@ function LoginPage() {
           justifyContent="center"
           height="100vh"
         >
-          <Card sx={{ width: 500, padding: 2 }} >
+          <Card sx={{ width: 500, padding: 2 }} className="authCards" >
             <CardContent>
               <Typography variant='h4' color="text.secondary">
                 Login

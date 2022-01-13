@@ -4,7 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { AppBar } from '@mui/material';
 import { connect, useSelector, useDispatch } from 'react-redux'
-import { getUserData } from '../actions/userActions';
+import { getUserData } from '../store/actions/userActions';
 import { NavLink } from 'react-router-dom';
 
 function HomePageLayout(props) {

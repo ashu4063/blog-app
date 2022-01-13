@@ -14,7 +14,7 @@ import { addDoc, collection, getDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from '../firebaseConfig'
 //redux imports
 import { connect } from 'react-redux';
-import { getUserData } from '../actions/userActions';
+import { getUserData } from '../store/actions/userActions';
 
 // Styling for UI
 const modalStyle = {

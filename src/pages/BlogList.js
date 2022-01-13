@@ -17,7 +17,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button, Popover, Typography, Box } from '@mui/material';
 //redux imports
-import { getUserData } from '../actions/userActions';
+import { getUserData } from '../store/actions/userActions';
 import { connect } from 'react-redux';
 
 const BlogList = ({ dispatch, loading, user, hasErrors }) => {

@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 
 // Local imports
 import App from "./App";
-import rootReducer from "./reducers";
+import rootReducer from "./store/reducers";
 
 // Assets
 import "./index.css";
@@ -15,10 +15,10 @@ import "./index.css";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 render(
- <Provider store={store}>
-  <App />
- </Provider>,
+    <Provider store={store}>
+        <App />
+    </Provider>,
 
- document.getElementById("root")
+    document.getElementById("root")
 
 );

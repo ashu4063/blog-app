@@ -19,10 +19,9 @@ body {
   text-decoration: none;
 }
 @media (max-width: 747px) {
-  /* .blogCard {
-    width: 100%;
-    height: max-content !important;
-  } */
+  .authCards {
+    width: 90% !important;
+  }
   .blogLayout {
     margin-left: 10px;
     width: 95%;
