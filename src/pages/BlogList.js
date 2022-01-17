@@ -20,10 +20,7 @@ import { Button, Popover, Typography, Box } from '@mui/material';
 import { getUserData } from '../store/actions/userActions';
 import { connect } from 'react-redux';
 
-const BlogList = ({ dispatch, loading, user, hasErrors }) => {
-    useEffect(() => {
-        dispatch(getUserData())
-    }, [dispatch])
+const BlogList = ({ loaded, user, hasErrors }) => {
     const userId = user?.uid
     const navigate = useNavigate()
     const [blogLists, setBlogList] = useState([]);
@@ -32,6 +29,7 @@ const BlogList = ({ dispatch, loading, user, hasErrors }) => {
     const id = target.id ? 'simple-popover' : undefined;
 
     const getBlogs = async () => {
+
         const blogsCollectionRef = query(collection(db, "blogs")
             , where("author.id", "==", userId));
         const data = await getDocs(blogsCollectionRef)
@@ -42,7 +40,7 @@ const BlogList = ({ dispatch, loading, user, hasErrors }) => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                if (!loading) {
+                if (loaded===true) {
                     getBlogs();
                 }
             }
@@ -50,7 +48,7 @@ const BlogList = ({ dispatch, loading, user, hasErrors }) => {
                 window.location.href = '/';
             }
         })
-    }, [id, loading])
+    }, [id, loaded])
 
     const handleClick = (event, id) => {
         setTarget({ target: event.currentTarget, id: id });
@@ -134,7 +132,7 @@ const BlogList = ({ dispatch, loading, user, hasErrors }) => {
 }
 
 const mapStateToProps = (state) => ({
-    loading: state.user.loading,
+    loaded: state.user.loaded,
     user: state.user.user,
     hasErrors: state.user.hasErrors,
 })

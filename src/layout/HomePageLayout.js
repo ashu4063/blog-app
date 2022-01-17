@@ -9,15 +9,12 @@ import { NavLink } from 'react-router-dom';
 
 function HomePageLayout(props) {
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(getUserData())
-    }, [dispatch])
+    
     const user = useSelector(state => state.user.user)
 
     return (
         <Box>
             <AppBar position="static">
-
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"

@@ -51,9 +51,9 @@ const BlogForm = ({ dispatch, loading, user, hasErrors }) => {
     'Travel',
     'Fashion',
   ];
-  useEffect(() => {
-    dispatch(getUserData())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(getUserData())
+  // }, [])
   const auth = getAuth()
   const navigate = useNavigate();
 

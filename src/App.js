@@ -7,16 +7,15 @@ import "./firebaseConfig";
 import SignUp from './pages/SignUp'
 import Sidebar from "./layout/DashboardLayout"
 import BlogList from './pages/BlogList'
-import HomePageLayout from "./layout/HomePageLayout"
 import BlogLanding from './pages/BlogLanding'
-
+import Layout from './layout/Layout'
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route exact path="/login" element={<LoginPage />} />
-        <Route exact path="/" element={<HomePageLayout><AllPosts /></HomePageLayout>} />
-        <Route exact path="/blog/:id" element={<HomePageLayout><BlogLanding /></HomePageLayout>} />
+        <Route exact path="/" element={<Layout><AllPosts /></Layout>} />
+        <Route exact path="/blog/:id" element={<Layout><BlogLanding /></Layout>} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/blogform" element={
           <Sidebar>
