@@ -11,7 +11,7 @@ export default function sagaReducer(state = initialState, action) {
   switch (action.type) {
     case actions.GET_USER_SUCCESS:
       return { user: action.payload, loaded: true, hasErrors: false }
-  
+
     default:
       return state
   }

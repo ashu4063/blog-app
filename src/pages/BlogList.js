@@ -17,9 +17,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button, Popover, Typography, Box } from '@mui/material';
 //redux imports
-import { getUserData } from '../store/actions/userActions';
 import { connect } from 'react-redux';
 
+import Portal from "../components/Portal"
 const BlogList = ({ loaded, user, hasErrors }) => {
     const userId = user?.uid
     const navigate = useNavigate()
@@ -40,7 +40,7 @@ const BlogList = ({ loaded, user, hasErrors }) => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                if (loaded===true) {
+                if (loaded === true) {
                     getBlogs();
                 }
             }
@@ -97,24 +97,26 @@ const BlogList = ({ loaded, user, hasErrors }) => {
                                     </TableCell>
 
                                     <TableCell><Button variant="contained" color="error" onClick={(event) => handleClick(event, row?.id)}>Delete</Button>
-                                        <Popover
+                                        <Portal>
+                                            <Popover
 
-                                            open={row?.id === target.id}
-                                            anchorEl={target.target}
-                                            onClose={handleClose}
-                                            key={index}
-                                            anchorOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'left',
-                                            }}
-                                        >
-                                            <Box sx={{ p: 2 }}>
-                                                <Typography sx={{ fontSize: 16 }} color="grey.secondary">
-                                                    Are you sure?                                           </Typography>
-                                                <Button variant='contained' size='small' color="success" onClick={() => onDelete(row?.id)}>Yes</Button>
-                                                <Button variant='contained' size='small' onClick={() => handleClose()} sx={{ ml: 2 }} color="error">No</Button>
-                                            </Box>
-                                        </Popover>
+                                                open={row?.id === target.id}
+                                                anchorEl={target.target}
+                                                onClose={handleClose}
+                                                key={index}
+                                                anchorOrigin={{
+                                                    vertical: 'bottom',
+                                                    horizontal: 'left',
+                                                }}
+                                            >
+                                                <Box sx={{ p: 2 }}>
+                                                    <Typography sx={{ fontSize: 16 }} color="grey.secondary">
+                                                        Are you sure?                                           </Typography>
+                                                    <Button variant='contained' size='small' color="success" onClick={() => onDelete(row?.id)}>Yes</Button>
+                                                    <Button variant='contained' size='small' onClick={() => handleClose()} sx={{ ml: 2 }} color="error">No</Button>
+                                                </Box>
+                                            </Popover>
+                                        </Portal>
                                     </TableCell>
 
                                 </TableRow>
